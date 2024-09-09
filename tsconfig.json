@@ -1,22 +1,36 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "module": "commonjs",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
     "skipLibCheck": true,
-    "esModuleInterop": true,
-    "noImplicitAny": true,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "outDir": "dist",
-    "moduleResolution": "node",
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
-    "target": "ES2021",
-    "paths": {
-      "*": ["node_modules/*"]
-    },
-    "jsx": "react"
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Path mapping */
+    // "baseUrl": ".",
+    // "paths": {
+    //   "@/*": ["src/*"],
+    //   "@components/*": ["src/components/*"],
+    //   "@context/*": ["src/context/*"],
+    //   "@hooks/*": ["src/hooks/*"],
+    //   "@interfaces/*": ["src/interfaces/*"],
+    //   "@provider/*": ["src/provider/*"]
+    // },
   },
-  "include": [
-    "src/**/*"
-  ]
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

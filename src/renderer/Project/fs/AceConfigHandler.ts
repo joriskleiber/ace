@@ -1,4 +1,3 @@
-import { remote } from 'electron';
 import path from 'path';
 import { GenericConfigHandler } from './GenericConfigHandler';
 
@@ -16,7 +15,8 @@ export class AceConfigHandler extends GenericConfigHandler<AceConfig> {
     }
 
     get filePath(): string {
-        return path.join(remote.app.getPath('userData'), this.fileName);
+        // TODO: replace ConfigHandler with tauri plugin 
+        return path.join("{FOLDERID_RoamingAppData}", this.fileName);
     }
 
     createConfig(): AceConfig {

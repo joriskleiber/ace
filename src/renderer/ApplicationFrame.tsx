@@ -1,9 +1,8 @@
-import { IconArtboard, IconSettings, IconX } from '@tabler/icons';
-import { ipcRenderer, remote } from 'electron';
+import { IconArtboard, IconSettings, IconX } from '@tabler/icons-react';
 import React, { FC, useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { WindowsControl } from 'react-windows-controls';
-import { useProjects } from './index';
+import { useProjects } from '../main';
 import { Notification, NotificationsContainer } from './Notifications';
 import { useAppDispatch, useAppSelector } from './Store';
 import { popNotification } from './Store/actions/notifications.actions';
@@ -16,11 +15,12 @@ interface ApplicationTabsType {
 
 export const ApplicationTabsContext = React.createContext<ApplicationTabsType>(undefined as any);
 
-export const ApplicationFrame: FC = ({ children }) => {
+export const ApplicationFrame: FC<{ children?: React.ReactNode }> = ({ children }) => {
     const [isLocked, setIsLocked] = useState(false);
 
     useEffect(() => {
-        ipcRenderer.send('update-rpc-permission', new AceConfigHandler().loadConfig().richPresenceEnabled);
+        // ipcRenderer.send('update-rpc-permission', new AceConfigHandler().loadConfig().richPresenceEnabled);
+        console.error('TODO: Implement update-rpc-permission');
     }, []);
 
     return (
@@ -39,18 +39,6 @@ const ApplicationTabs: FC = () => {
     const history = useHistory();
     const { projects, closeProject } = useProjects();
     const { locked } = useContext(ApplicationTabsContext);
-
-    const handleMinimize = () => {
-        remote.getCurrentWindow().minimize();
-    };
-
-    const handleMaximize = () => {
-        remote.getCurrentWindow().maximize();
-    };
-
-    const handleClose = () => {
-        remote.getCurrentWindow().close();
-    };
 
     return (
         <section className="h-12 flex flex-row items-center bg-navy-lighter shadow-md z-50">
@@ -91,7 +79,7 @@ const ApplicationTabs: FC = () => {
 
             <span className="h-full flex flex-row ml-auto items-center">
                 <div
-                    className="flex items-center justify-center mr-5 w-10 group transition bg-navy-lightest hover:bg-navy-light h-full duration-300 cursor-pointer"
+                    className="flex items-center justify-center w-10 group transition bg-navy-lightest hover:bg-navy-light h-full duration-300 cursor-pointer"
                     onClick={() => history.push('/ace-config')}
                 >
                     <IconSettings
@@ -99,15 +87,13 @@ const ApplicationTabs: FC = () => {
                         className="stroke-current text-gray-500 group-hover:text-white duration-300"
                     />
                 </div>
-                <WindowsControl minimize whiteIcon onClick={handleMinimize} />
-                <WindowsControl maximize whiteIcon onClick={handleMaximize} />
-                <WindowsControl close whiteIcon onClick={handleClose} />
             </span>
         </section>
     );
 };
 
 interface TabProps {
+    children?: React.ReactNode,
     icon?: JSX.Element,
     selected?: boolean,
     onClick?: () => void,
@@ -143,7 +129,7 @@ const ApplicationNotifications: FC = () => {
     const firstNotification: string = useAppSelector((store) => store.notifications[0]);
     const dispatch = useAppDispatch();
 
-    const [currentText, setCurrentText] = useState(null);
+    const [currentText, setCurrentText] = useState<string | null>(null);
 
     useEffect(() => {
         setCurrentText(firstNotification);

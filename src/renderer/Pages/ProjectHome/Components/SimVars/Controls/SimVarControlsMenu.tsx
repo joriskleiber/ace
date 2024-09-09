@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { v4 } from 'uuid';
-import { IconPlus } from '@tabler/icons';
+import { IconPlus } from '@tabler/icons-react';
 import { SideMenu } from '../../Framework/Toolbars';
 import { SimVarControlElement } from './SimVarControlElement';
 import { useProjectDispatch, useProjectSelector } from '../../../Store';

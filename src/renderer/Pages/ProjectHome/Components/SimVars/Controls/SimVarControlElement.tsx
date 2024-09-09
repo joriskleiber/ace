@@ -1,5 +1,5 @@
 import React, { FC, FocusEvent, useCallback, useEffect, useRef } from 'react';
-import { IconPencil, IconTrash } from '@tabler/icons';
+import { IconPencil, IconTrash } from '@tabler/icons-react';
 import {
     SimVarControl,
     SimVarControlStyle,
@@ -17,18 +17,18 @@ interface SimVarEditorProps {
 
 export const defaultValueForControlStyle = (style: SimVarControlStyle) => {
     switch (style.type) {
-    case SimVarControlStyleTypes.Checkbox:
-        return false;
-    case SimVarControlStyleTypes.Number:
-        return 0;
-    case SimVarControlStyleTypes.Range:
-        return (style.min + style.max) / 2;
-    case SimVarControlStyleTypes.Button:
-        return style.value;
-    case SimVarControlStyleTypes.TextInput:
-        return '';
-    default:
-        return 0;
+        case SimVarControlStyleTypes.Checkbox:
+            return false;
+        case SimVarControlStyleTypes.Number:
+            return 0;
+        case SimVarControlStyleTypes.Range:
+            return (style.min + style.max) / 2;
+        case SimVarControlStyleTypes.Button:
+            return style.value;
+        case SimVarControlStyleTypes.TextInput:
+            return '';
+        default:
+            return 0;
     }
 };
 
@@ -62,17 +62,17 @@ export const SimVarControlElement: React.FC<SimVarEditorProps> = ({ simVarContro
         let actualValue = value;
 
         switch (simVarControl.style.type) {
-        case SimVarControlStyleTypes.Number:
-        case SimVarControlStyleTypes.Range:
-            const numberValue = parseFloat(value);
+            case SimVarControlStyleTypes.Number:
+            case SimVarControlStyleTypes.Range:
+                const numberValue = parseFloat(value);
 
-            actualValue = numberValue / scaleFactor.current;
-            break;
-        case SimVarControlStyleTypes.Checkbox:
-            actualValue = !!value;
-            break;
-        default:
-            break;
+                actualValue = numberValue / scaleFactor.current;
+                break;
+            case SimVarControlStyleTypes.Checkbox:
+                actualValue = !!value;
+                break;
+            default:
+                break;
         }
 
         projectDispatch(setSimVarValue({
@@ -96,12 +96,12 @@ export const SimVarControlElement: React.FC<SimVarEditorProps> = ({ simVarContro
                         || simVarControl.style.type === SimVarControlStyleTypes.Range
                         || simVarControl.style.type === SimVarControlStyleTypes.Button
                     ) && (
-                        <EditableSimVarControlValue
-                            value={simVarValue}
-                            unit={simVarControl.varUnit}
-                            onInput={handleSetValue}
-                        />
-                    )}
+                            <EditableSimVarControlValue
+                                value={simVarValue}
+                                unit={simVarControl.varUnit}
+                                onInput={handleSetValue}
+                            />
+                        )}
 
                     {simVarControl.style.type === SimVarControlStyleTypes.Range && (
                         <RangeSimVarControl

@@ -6,7 +6,7 @@ import {
     IconChevronLeft,
     IconPencil,
     IconVariable,
-} from '@tabler/icons';
+} from '@tabler/icons-react';
 import { Toolbar, ToolbarItem, ToolbarItemColors, ToolbarSeparator } from './Framework/Toolbars';
 import { useProjectDispatch, useProjectSelector } from '../Store';
 import { WorkspacePanelSelection } from '../Store/reducers/interactionToolbar.reducer';
@@ -31,14 +31,14 @@ export const InteractionToolbar: FC = () => {
 
     const getCurrentPanel = () => {
         switch (currentPanel) {
-        default:
-            return <></>;
-        case WorkspacePanelSelection.SimVars:
-            return <SimVarMenu />;
-        case WorkspacePanelSelection.Timeline:
-            return <Timeline />;
-        case WorkspacePanelSelection.Coherent:
-            return <CoherentMenu />;
+            default:
+                return <></>;
+            case WorkspacePanelSelection.SimVars:
+                return <SimVarMenu />;
+            case WorkspacePanelSelection.Timeline:
+                return <Timeline />;
+            case WorkspacePanelSelection.Coherent:
+                return <CoherentMenu />;
         }
     };
 

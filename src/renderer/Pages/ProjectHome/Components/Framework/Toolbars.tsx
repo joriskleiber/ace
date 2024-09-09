@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
 
-export const Toolbar: FC = ({ children }) => (
+export const Toolbar: FC<{ children?: React.ReactNode, }> = ({ children }) => (
     <div className="h-full flex flex-col gap-y-3">
         {children}
     </div>
@@ -35,8 +35,9 @@ export const ToolbarItemColors: { [k: string]: ToolbarItemColor } = {
 };
 
 export interface ToolbarItemProps {
+    children?: React.ReactNode,
     onClick?: () => void;
-    onToggle?: (open :boolean) => void;
+    onToggle?: (open: boolean) => void;
     color?: ToolbarItemColor;
     renderPopover?: FC;
     visible?: boolean;
@@ -46,7 +47,7 @@ export const ToolbarItem: FC<ToolbarItemProps> = ({ onClick, onToggle, color = T
     const [popoverOpen, setPopoverOpen] = useState(false);
 
     const buttonRef = useRef<HTMLSpanElement>(null);
-    const buttonRect = useRef<DOMRect>(null);
+    const buttonRect = useRef<DOMRect | null>(null);
 
     useEffect(() => {
         if (buttonRef.current) {
@@ -65,8 +66,8 @@ export const ToolbarItem: FC<ToolbarItemProps> = ({ onClick, onToggle, color = T
                 + 'p-3 flex flex-row justify-center items-center rounded-md shadow-lg hover:shadow-xl';
         }
         return 'w-14 h-14 '
-                + `bg-navy-lighter hover:bg-navy-lightest border border-gray-500 ${color.normal} transition-all duration-150 cursor-pointer `
-                + 'p-3 flex flex-row justify-center items-center rounded-md shadow-lg hover:shadow-xl';
+            + `bg-navy-lighter hover:bg-navy-lightest border border-gray-500 ${color.normal} transition-all duration-150 cursor-pointer `
+            + 'p-3 flex flex-row justify-center items-center rounded-md shadow-lg hover:shadow-xl';
     }, [color, popoverOpen, visible]);
 
     const handleClick = () => {
@@ -100,7 +101,7 @@ export const ToolbarSeparator: FC = () => (
     <span className="w-[48px] h-[1.5px] ml-1 my-0.5 bg-navy-lightest" />
 );
 
-export const SideMenu: FC<{ className?: string }> = ({ className, children }) => (
+export const SideMenu: FC<{ className?: string, children?: React.ReactNode }> = ({ className, children }) => (
     <div className={`${className} flex flex-col h-full p-5 rounded-sm`} style={{ top: 0 }}>
         {children}
     </div>

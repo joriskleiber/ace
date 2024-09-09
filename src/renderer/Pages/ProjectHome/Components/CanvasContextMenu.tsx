@@ -8,7 +8,7 @@ import {
     IconRectangle,
     IconResize,
     IconTrash,
-} from '@tabler/icons';
+} from '@tabler/icons-react';
 import { v4 } from 'uuid';
 import { ContextMenuProps, ContextMenu, ContextMenuItem, ContextMenuItemIcon, ContextMenuItemBody } from './Framework/ContextMenus';
 import { PossibleCanvasElements } from '../../../../shared/types/project/canvas/CanvasSaveFile';

@@ -1,6 +1,6 @@
 import React, { MouseEvent, PropsWithChildren, useCallback, useEffect, useRef, useState, WheelEvent } from 'react';
 import { ReactZoomPanPinchRef, TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch';
-import { IconArrowsMaximize } from '@tabler/icons';
+import { IconArrowsMaximize } from '@tabler/icons-react';
 import { useThrottle } from 'react-use';
 import useInterval from '../../utils/useInterval';
 import { PossibleCanvasElements } from '../../shared/types/project/canvas/CanvasSaveFile';

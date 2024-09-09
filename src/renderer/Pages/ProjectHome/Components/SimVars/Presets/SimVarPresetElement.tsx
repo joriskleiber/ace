@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { IconCircle, IconCircleCheck, IconPencil } from '@tabler/icons';
+import { IconCircle, IconCircleCheck, IconPencil } from '@tabler/icons-react';
 import { SimVarPreset } from '../../../../../../shared/types/project/SimVarPreset';
 
 export interface SimVarPresetEntryProps {

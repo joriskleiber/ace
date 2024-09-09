@@ -1,9 +1,9 @@
 import React from 'react';
-import { IconTrash } from '@tabler/icons';
+import { IconTrash } from '@tabler/icons-react';
 import { useProjectSelector } from '../Store';
 import { SideMenu } from './Framework/Toolbars';
 
-const { highlight } = require('highlight.js');
+import hljs from 'highlight.js';
 
 export const CoherentMenu = () => {
     const events = useProjectSelector((state) => state.coherent.events);
@@ -29,7 +29,7 @@ export const CoherentMenu = () => {
                                 <code
                                     style={{ backgroundColor: 'rgba(34,52,76,0.5)', padding: '0.25rem' }}
                                     className="bg-black rounded"
-                                    dangerouslySetInnerHTML={{ __html: highlight(data.callback.toString(), { language: 'javascript' }).value }}
+                                    dangerouslySetInnerHTML={{ __html: hljs.highlight(data.callback.toString(), { language: 'javascript' }).value }}
                                 />
                             )}
                             <IconTrash

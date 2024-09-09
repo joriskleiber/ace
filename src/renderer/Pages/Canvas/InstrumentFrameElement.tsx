@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
-import { IconCamera, IconRefresh } from '@tabler/icons';
-import { Toggle } from '@flybywiresim/react-components';
+import { IconCamera, IconRefresh } from '@tabler/icons-react';
+// import { Toggle } from '@flybywiresim/react-components';
 import rasterizeHTML from 'rasterizehtml';
 import { PanelCanvasElement } from '../PanelCanvas';
 import { ProjectInstrumentsHandler } from '../../Project/fs/Instruments';
@@ -174,11 +174,11 @@ export const InstrumentFrameElement: FC<InstrumentFrameElementProps> = ({ instru
                 engine.loadBundledInstrument(
                     loadedInstrument,
                     iframeRef.current, {
-                        onInstrumentError: (error) => {
-                            setError(error);
-                            setErrorIsInInstrument(true);
-                        },
+                    onInstrumentError: (error) => {
+                        setError(error);
+                        setErrorIsInInstrument(true);
                     },
+                },
                 );
             } else if (instrumentFrame.dataKind === 'web' && loadedInstrument.__kind === 'web') {
                 engine.loadWebInstrument({ ...loadedInstrument, url: 'http://localhost:39511/' }, iframeRef.current, {
@@ -207,7 +207,7 @@ export const InstrumentFrameElement: FC<InstrumentFrameElementProps> = ({ instru
 
     useEffect(() => {
         if (!liveReloadDispatcher) {
-            return () => {};
+            return () => { };
         }
 
         if (instrumentFrame.dataKind === 'bundled' && loadedInstrument.__kind === 'bundled') {
@@ -223,7 +223,7 @@ export const InstrumentFrameElement: FC<InstrumentFrameElementProps> = ({ instru
             return () => liveReloadDispatcher.unsubscribe(sub);
         }
 
-        return () => {};
+        return () => { };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [doLoadInstrument, ...Object.values(instrumentFrame), liveReloadDispatcher, jsSourceDep, cssSourceDep]);
 

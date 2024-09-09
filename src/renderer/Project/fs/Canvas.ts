@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs';
 import { v4 as UUID } from 'uuid';
-import { ProjectData } from '../../index';
+import { ProjectData } from '../../main';
 import { CanvasSaveFile } from '../../../shared/types/project/canvas/CanvasSaveFile';
 
 export class ProjectCanvasSaveHandler {

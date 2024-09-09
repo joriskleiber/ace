@@ -1,20 +1,19 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom/client";
 import { HashRouter as Router, Route, useHistory } from 'react-router-dom';
 import fs from 'fs';
 import path from 'path';
-import { ipcRenderer } from 'electron';
 import { Provider } from 'react-redux';
-import { ApplicationFrame } from './ApplicationFrame';
-import { Home } from './Pages/Home';
-import { CreateProject } from './Pages/createproject';
-import { AceConfigurationPanel } from './Pages/AceConfigurationPanel';
+import { ApplicationFrame } from './renderer/ApplicationFrame';
+import { Home } from './renderer/Pages/Home';
+import { CreateProject } from './renderer/Pages/createproject';
+import { AceConfigurationPanel } from './renderer/Pages/AceConfigurationPanel';
 import './index.scss';
-import { Project } from './types/Project';
-import { store } from './Store';
-import { RecentlyOpenedProjects } from './Project/recently-opened';
-import { AceConfigHandler } from './Project/fs/AceConfigHandler';
-import { ProjectWorkspaceContainer } from './Pages/ProjectHome/ProjectWorkspaceContainer';
+import { Project } from './renderer/types/Project';
+import { store } from './renderer/Store';
+import { RecentlyOpenedProjects } from './renderer/Project/recently-opened';
+import { AceConfigHandler } from './renderer/Project/fs/AceConfigHandler';
+import { ProjectWorkspaceContainer } from './renderer/Pages/ProjectHome/ProjectWorkspaceContainer';
 
 const ACE_PROJECT_GITIGNORE_CONTENT = 'data/*\n';
 
@@ -41,7 +40,8 @@ export const Main = () => {
         setProjects((projects) => (projects.filter((project) => project.location !== location)));
 
         if (aceConfig.richPresenceEnabled) {
-            ipcRenderer.send('set-rpc-state', 'Idling');
+            // ipcRenderer.send('set-rpc-state', 'Idling');
+            console.error('TODO: Implement set-rpc-state');
         }
     }
 
@@ -79,10 +79,12 @@ export const Main = () => {
 
         RecentlyOpenedProjects.save(recentlyOpenedProjects);
 
-        ipcRenderer.send('load-project', project.paths.htmlUiSrc);
+        // ipcRenderer.send('load-project', project.paths.htmlUiSrc);
+        console.error('TODO: Implement load-project');
 
         if (aceConfig.richPresenceEnabled) {
-            ipcRenderer.send('set-rpc-state-with-time', `Working on ${project.name}`, projectStartTime);
+            // ipcRenderer.send('set-rpc-state-with-time', `Working on ${project.name}`, projectStartTime);
+            console.error('TODO: Implement set-rpc-state-with-time');
         }
 
         history.push(`/project/${project.name}`);
@@ -136,4 +138,9 @@ export const Main = () => {
         </Provider>
     );
 };
-ReactDOM.render(<Router><Main /></Router>, document.body);
+
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+    <React.StrictMode>
+        <Router><Main /></Router>
+    </React.StrictMode>,
+);

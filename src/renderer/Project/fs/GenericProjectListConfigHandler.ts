@@ -1,6 +1,6 @@
 import { IdentifiableElement } from '../../../shared/types/project/IdentifiableElement';
 import { GenericConfigHandler } from './GenericConfigHandler';
-import { ProjectData } from '../../index';
+import { ProjectData } from '../../main';
 
 export type ListConfig<T extends IdentifiableElement> = { elements: T[] }
 

@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useHistory } from 'react-router';
-import { IconArrowNarrowLeft } from '@tabler/icons';
-import { Toggle } from '@flybywiresim/react-components';
-import { ipcRenderer } from 'electron';
+import { IconArrowNarrowLeft } from '@tabler/icons-react';
+// import { Toggle } from '@flybywiresim/react-components';
 import { AceConfig, AceConfigHandler } from '../Project/fs/AceConfigHandler';
 import { ApplicationTabsContext } from '../ApplicationFrame';
 
@@ -42,7 +41,8 @@ export const AceConfigurationPanel: React.FC = () => {
 
     function onSave() {
         if (tempAceConfig.richPresenceEnabled !== aceConfig[0].loadConfig().richPresenceEnabled) {
-            ipcRenderer.send('update-rpc-permission', tempAceConfig.richPresenceEnabled);
+            // ipcRenderer.send('update-rpc-permission', tempAceConfig.richPresenceEnabled);
+            console.error('TODO: Implement update-rpc-permission');
         }
 
         aceConfig[0].saveConfig(tempAceConfig);
@@ -97,33 +97,33 @@ export const AceConfigurationPanel: React.FC = () => {
                 ))}
             </div>
             {showSaveMenu
-            && (
-                // eslint-disable-next-line max-len
-                <div className="absolute bottom-5 mx-auto inset-x-0 pb-5 px-5 max-w-5xl">
-                    <div className={`flex w-full flex-row items-center transition duration-300 justify-center rounded-md mx-auto py-2 px-4 ${shakeMenu ? 'shake bg-teal' : 'bg-navy-lighter'}`}>
-                        <p>You currently have unsaved changes. Abandon or save them before exiting.</p>
-                        <div className="ml-20 flex flex-col sm:flex-row flex-shrink-0 items-center gap-x-2">
-                            <button
-                                type="button"
-                                className="bg-blue-darker bg-opacity-30 hover:bg-opacity-50 my-1 border border-blue-dark px-4 py-1 rounded-md focus:shadow-none transition duration-300"
-                                onClick={() => {
-                                    setTempAceConfig(aceConfig[0].loadConfig());
-                                    setShowSaveMenu(false);
-                                }}
-                            >
-                                Abandon Changes
-                            </button>
-                            <button
-                                type="button"
-                                className="bg-teal-light-contrast bg-opacity-30 hover:bg-opacity-50 my-1 border border-teal px-4 py-1 rounded-md focus:shadow-none transition duration-300"
-                                onClick={onSave}
-                            >
-                                Save Changes
-                            </button>
+                && (
+                    // eslint-disable-next-line max-len
+                    <div className="absolute bottom-5 mx-auto inset-x-0 pb-5 px-5 max-w-5xl">
+                        <div className={`flex w-full flex-row items-center transition duration-300 justify-center rounded-md mx-auto py-2 px-4 ${shakeMenu ? 'shake bg-teal' : 'bg-navy-lighter'}`}>
+                            <p>You currently have unsaved changes. Abandon or save them before exiting.</p>
+                            <div className="ml-20 flex flex-col sm:flex-row flex-shrink-0 items-center gap-x-2">
+                                <button
+                                    type="button"
+                                    className="bg-blue-darker bg-opacity-30 hover:bg-opacity-50 my-1 border border-blue-dark px-4 py-1 rounded-md focus:shadow-none transition duration-300"
+                                    onClick={() => {
+                                        setTempAceConfig(aceConfig[0].loadConfig());
+                                        setShowSaveMenu(false);
+                                    }}
+                                >
+                                    Abandon Changes
+                                </button>
+                                <button
+                                    type="button"
+                                    className="bg-teal-light-contrast bg-opacity-30 hover:bg-opacity-50 my-1 border border-teal px-4 py-1 rounded-md focus:shadow-none transition duration-300"
+                                    onClick={onSave}
+                                >
+                                    Save Changes
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
+                )}
         </div>
     );
 };

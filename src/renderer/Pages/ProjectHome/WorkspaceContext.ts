@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import { ProjectData } from '../../index';
+import { ProjectData } from '../../main';
 import { ProjectLiveReloadHandler } from '../../Project/fs/LiveReload';
 import { SimVarControlsHandler } from '../../Project/fs/SimVarControls';
 import { SimVarPresetsHandler } from '../../Project/fs/SimVarPresets';

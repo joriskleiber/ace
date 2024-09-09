@@ -1,21 +1,12 @@
-'use strict';
+/** @type {import('tailwindcss').Config} */
 
 const defaultTheme = require('tailwindcss/defaultTheme');
 
-const reactComponentsClasses = require('./node_modules/@flybywiresim/react-components/build/usedCSSClasses.json');
-
-module.exports = {
-    mode: 'jit',
-    purge: {
-        enabled: true,
-        content: [
-            './src/**/*.{js,ts,jsx,tsx}',
-        ],
-        safelist: [
-            ...reactComponentsClasses,
-        ],
-    },
-    darkMode: false, // or 'media' or 'class'
+export default {
+    content: [
+        "./index.html",
+        "./src/**/*.{ts,tsx}",
+    ],
     theme: {
         fontFamily: {
             sans: ['Nunito Sans', ...defaultTheme.fontFamily.sans],
@@ -24,11 +15,7 @@ module.exports = {
         },
         extend: {},
     },
-    variants: {
-        extend: {},
-    },
     plugins: [
-        // eslint-disable-next-line global-require
         require('@flybywiresim/tailwind-config'),
-    ],
-};
+    ]
+}

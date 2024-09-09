@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
-import { IconCircle, IconCircleCheck } from '@tabler/icons';
+import { IconCircle, IconCircleCheck } from '@tabler/icons-react';
 
 export interface SelectBoxProps {
     selectedItemIndex?: number,
     onItemSelected?: (item: number) => void,
 }
 
-export const SelectBox: FC<SelectBoxProps> = ({ selectedItemIndex = 0, onItemSelected = () => {}, children }) => {
+export const SelectBox: FC<SelectBoxProps> = ({ selectedItemIndex = 0, onItemSelected = () => { }, children }) => {
     const handleItemSelected = (index: number) => onItemSelected(index);
 
     return (

@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-handler-names */
 import React, { FC, useMemo } from 'react';
 import Collapsible from 'react-collapsible';
-import { IconArrowRight } from '@tabler/icons';
+import { IconArrowRight } from '@tabler/icons-react';
 import ReactJson from 'react-json-view';
 import 'react-searchable-filter/dist/index.css';
 import { SideMenu } from './Framework/Toolbars';
@@ -51,56 +51,56 @@ interface ActivityHeaderTitleProps {
 
 const ActivityHeaderTitle: FC<ActivityHeaderTitleProps> = ({ kind }) => {
     switch (kind) {
-    case ActivityType.SimVarSet:
-        return (
-            <span className="text-md font-mono flex gap-x-1 text-gray-400">
-                <span className="text-yellow-300">SimVar</span>
-                <span>/</span>
-                <span>Set</span>
-            </span>
-        );
-    case ActivityType.CoherentTrigger:
-        return (
-            <span className="text-md font-mono flex gap-x-1 text-gray-400">
-                <span className="text-red-500">Coherent</span>
-                <span>/</span>
-                <span>Trigger</span>
-            </span>
-        );
-    case ActivityType.CoherentCall:
-        return (
-            <span className="text-md font-mono flex gap-x-1 text-gray-400">
-                <span className="text-red-500">Coherent</span>
-                <span>/</span>
-                <span>Call</span>
-            </span>
-        );
-    case ActivityType.CoherentNewOn:
-        return (
-            <span className="text-md font-mono flex gap-x-1 text-gray-400">
-                <span className="text-red-500">Coherent</span>
-                <span>/</span>
-                <span>New Event</span>
-            </span>
-        );
-    case ActivityType.CoherentClearOn:
-        return (
-            <span className="text-md font-mono flex gap-x-1 text-gray-400">
-                <span className="text-red-500">Coherent</span>
-                <span>/</span>
-                <span>Clear Event</span>
-            </span>
-        );
-    case ActivityType.DataStorageSet:
-        return (
-            <span className="text-md font-mono flex gap-x-1 text-gray-400">
-                <span className="text-green-500">DataStorage</span>
-                <span>/</span>
-                <span>Set</span>
-            </span>
-        );
-    default:
-        return <span>Unknown</span>;
+        case ActivityType.SimVarSet:
+            return (
+                <span className="text-md font-mono flex gap-x-1 text-gray-400">
+                    <span className="text-yellow-300">SimVar</span>
+                    <span>/</span>
+                    <span>Set</span>
+                </span>
+            );
+        case ActivityType.CoherentTrigger:
+            return (
+                <span className="text-md font-mono flex gap-x-1 text-gray-400">
+                    <span className="text-red-500">Coherent</span>
+                    <span>/</span>
+                    <span>Trigger</span>
+                </span>
+            );
+        case ActivityType.CoherentCall:
+            return (
+                <span className="text-md font-mono flex gap-x-1 text-gray-400">
+                    <span className="text-red-500">Coherent</span>
+                    <span>/</span>
+                    <span>Call</span>
+                </span>
+            );
+        case ActivityType.CoherentNewOn:
+            return (
+                <span className="text-md font-mono flex gap-x-1 text-gray-400">
+                    <span className="text-red-500">Coherent</span>
+                    <span>/</span>
+                    <span>New Event</span>
+                </span>
+            );
+        case ActivityType.CoherentClearOn:
+            return (
+                <span className="text-md font-mono flex gap-x-1 text-gray-400">
+                    <span className="text-red-500">Coherent</span>
+                    <span>/</span>
+                    <span>Clear Event</span>
+                </span>
+            );
+        case ActivityType.DataStorageSet:
+            return (
+                <span className="text-md font-mono flex gap-x-1 text-gray-400">
+                    <span className="text-green-500">DataStorage</span>
+                    <span>/</span>
+                    <span>Set</span>
+                </span>
+            );
+        default:
+            return <span>Unknown</span>;
     }
 };
 

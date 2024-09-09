@@ -1,26 +1,23 @@
 import React, { FC, useContext, useState } from 'react';
 import { useHover } from 'use-events';
-import { remote } from 'electron';
 import { useHistory } from 'react-router-dom';
-import { IconFolder, IconFolderPlus, IconArrowRight, IconTrash } from '@tabler/icons';
-import { useProjects } from '../../index';
+import { IconFolder, IconFolderPlus, IconArrowRight, IconTrash } from '@tabler/icons-react';
+import { useProjects } from '../../../main';
 import { RecentlyOpenedProject, RecentlyOpenedProjects } from '../../Project/recently-opened';
+import { open } from '@tauri-apps/api/dialog';
 
 export const Home: FC = () => {
     const history = useHistory();
     const { loadProject } = useProjects();
 
-    const handleOpenProject = async () => {
-        const result = await remote.dialog.showOpenDialog({
-            title: 'Select the root directory of your project',
-            properties: ['openDirectory'],
-        });
+    const handleOpenProject = () => {
+        open({ directory: true, title: 'Select the root directory of your project' })
+            .then((result) => {
+                if (!result) return;
 
-        if (result.filePaths.length !== 1) {
-            return;
-        }
-
-        loadProject(result.filePaths[0]);
+                loadProject(result as string);
+            })
+            .catch((e) => console.error(e));
     };
 
     return (

@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { IconPlus } from '@tabler/icons';
+import { IconPlus } from '@tabler/icons-react';
 import { useWorkspace } from '../../../WorkspaceContext';
 import { SimVarPresetElement } from './SimVarPresetElement';
 
