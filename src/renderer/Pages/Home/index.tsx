@@ -2,9 +2,9 @@ import React, { FC, useContext, useState } from 'react';
 import { useHover } from 'use-events';
 import { useHistory } from 'react-router-dom';
 import { IconFolder, IconFolderPlus, IconArrowRight, IconTrash } from '@tabler/icons-react';
+import { open } from '@tauri-apps/api/dialog';
 import { useProjects } from '../../../main';
 import { RecentlyOpenedProject, RecentlyOpenedProjects } from '../../Project/recently-opened';
-import { open } from '@tauri-apps/api/dialog';
 
 export const Home: FC = () => {
     const history = useHistory();

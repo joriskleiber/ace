@@ -105,42 +105,42 @@ export const SimVarControlEditMenu: FC<SimVarControlEditMenuProps> = ({ control,
 
         let style: SimVarControlStyle;
         switch (controlStyleType) {
-        case SimVarControlStyleTypes.Range:
-            const min = parseFloat(rangeMin);
-            const max = parseFloat(rangeMax);
-            const step = parseFloat(rangeStep);
+            case SimVarControlStyleTypes.Range:
+                const min = parseFloat(rangeMin);
+                const max = parseFloat(rangeMax);
+                const step = parseFloat(rangeStep);
 
-            style = {
-                type: controlStyleType,
-                min,
-                max,
-                step,
-            };
-            break;
-        case SimVarControlStyleTypes.Button:
-            let actualValue: SimVarValue;
+                style = {
+                    type: controlStyleType,
+                    min,
+                    max,
+                    step,
+                };
+                break;
+            case SimVarControlStyleTypes.Button:
+                let actualValue: SimVarValue;
 
-            if (value.trim() === 'true' || value === 'false') {
-                actualValue = JSON.parse(value.trim());
-            } else {
-                const numValue = parseFloat(value);
-
-                if (!Number.isNaN(numValue)) {
-                    actualValue = numValue;
+                if (value.trim() === 'true' || value === 'false') {
+                    actualValue = JSON.parse(value.trim());
                 } else {
-                    actualValue = value;
-                }
-            }
+                    const numValue = parseFloat(value);
 
-            style = {
-                type: controlStyleType,
-                value: actualValue,
-            };
-            break;
-        default:
-            style = {
-                type: controlStyleType,
-            };
+                    if (!Number.isNaN(numValue)) {
+                        actualValue = numValue;
+                    } else {
+                        actualValue = value;
+                    }
+                }
+
+                style = {
+                    type: controlStyleType,
+                    value: actualValue,
+                };
+                break;
+            default:
+                style = {
+                    type: controlStyleType,
+                };
         }
 
         const data = {

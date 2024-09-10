@@ -1,9 +1,8 @@
 import React from 'react';
 import { IconTrash } from '@tabler/icons-react';
+import hljs from 'highlight.js';
 import { useProjectSelector } from '../Store';
 import { SideMenu } from './Framework/Toolbars';
-
-import hljs from 'highlight.js';
 
 export const CoherentMenu = () => {
     const events = useProjectSelector((state) => state.coherent.events);

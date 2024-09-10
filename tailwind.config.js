@@ -1,11 +1,12 @@
-/** @type {import('tailwindcss').Config} */
+'use strict';
 
 const defaultTheme = require('tailwindcss/defaultTheme');
 
+/** @type {import('tailwindcss').Config} */
 export default {
     content: [
-        "./index.html",
-        "./src/**/*.{ts,tsx}",
+        './index.html',
+        './src/**/*.{ts,tsx}',
     ],
     theme: {
         fontFamily: {
@@ -16,6 +17,7 @@ export default {
         extend: {},
     },
     plugins: [
+        // eslint-disable-next-line global-require
         require('@flybywiresim/tailwind-config'),
-    ]
-}
+    ],
+};

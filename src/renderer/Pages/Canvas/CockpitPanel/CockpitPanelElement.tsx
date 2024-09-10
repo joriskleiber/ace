@@ -47,12 +47,11 @@ export const CockpitPanelElement: FC<CockpitPanelElementProps> = ({ panel, canva
 };
 
 export interface CockpitPanelPushButton {
-    text?: string,
     topLegend?: string,
     bottomLegend?: string,
 }
 
-export const CockpitPanelPushButtonRender: FC<CockpitPanelPushButton> = ({ text, topLegend, bottomLegend }) => (
+export const CockpitPanelPushButtonRender: FC<CockpitPanelPushButton> = ({ topLegend, bottomLegend }) => (
     <svg className="w-[60px]" viewBox="0 0 50 50">
         <rect x={0} y={0} width={50} height={50} fill="#111" stroke="#333" strokeWidth={3.5} />
 

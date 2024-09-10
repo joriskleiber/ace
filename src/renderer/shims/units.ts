@@ -163,27 +163,27 @@ export class Temperature {
 
     toKelvin(unit: string): (value: number) => number {
         switch (unit) {
-        case 'rankine':
-            return (value: number) => value / 1.8;
-        case 'fahrenheit':
-            return (value: number) => (value + 459.67) / 1.8;
-        case 'celsius':
-            return (value: number) => value + 273.15;
-        default:
-            return (value: number) => value;
+            case 'rankine':
+                return (value: number) => value / 1.8;
+            case 'fahrenheit':
+                return (value: number) => (value + 459.67) / 1.8;
+            case 'celsius':
+                return (value: number) => value + 273.15;
+            default:
+                return (value: number) => value;
         }
     }
 
     fromKelvin(unit: string): (value: number) => number {
         switch (unit) {
-        case 'rankine':
-            return (value: number) => value * 1.8;
-        case 'fahrenheit':
-            return (value: number) => (value - 273.15) * 1.8 + 32;
-        case 'celsius':
-            return (value: number) => value - 273.15;
-        default:
-            return (value: number) => value;
+            case 'rankine':
+                return (value: number) => value * 1.8;
+            case 'fahrenheit':
+                return (value: number) => (value - 273.15) * 1.8 + 32;
+            case 'celsius':
+                return (value: number) => value - 273.15;
+            default:
+                return (value: number) => value;
         }
     }
 

@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import ReactDOM from "react-dom/client";
+import ReactDOM from 'react-dom/client';
 import { HashRouter as Router, Route, useHistory } from 'react-router-dom';
 import fs from 'fs';
 import path from 'path';
@@ -139,7 +139,7 @@ export const Main = () => {
     );
 };
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
         <Router><Main /></Router>
     </React.StrictMode>,

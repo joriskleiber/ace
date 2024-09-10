@@ -15,8 +15,8 @@ export class AceConfigHandler extends GenericConfigHandler<AceConfig> {
     }
 
     get filePath(): string {
-        // TODO: replace ConfigHandler with tauri plugin 
-        return path.join("{FOLDERID_RoamingAppData}", this.fileName);
+        // TODO: replace ConfigHandler with tauri plugin
+        return path.join('{FOLDERID_RoamingAppData}', this.fileName);
     }
 
     createConfig(): AceConfig {

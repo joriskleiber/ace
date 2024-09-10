@@ -5,7 +5,7 @@ import { PossibleCanvasElements } from '../../../shared/types/project/canvas/Can
 import { InteractionToolbar } from './Components/InteractionToolbar';
 import { PanelCanvas } from '../PanelCanvas';
 import { InstrumentFrameElement } from '../Canvas/InstrumentFrameElement';
-import { ProjectData } from '../../main';
+import { ProjectData } from '../../../main';
 import { WorkspaceContext } from './WorkspaceContext';
 import { ProjectLiveReloadHandler } from '../../Project/fs/LiveReload';
 import { Grid } from '../Canvas/Grid';

@@ -47,7 +47,7 @@ export class QueuedDataWriter {
                     };
 
                     elements.push(element);
-                } catch (e) {
+                } catch {
                     console.warn(`[SimVarValues] Could not parse simvar '${key}'. Ignoring.`);
                 }
             }

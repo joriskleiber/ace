@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import path from 'path';
+import { open } from '@tauri-apps/api/dialog';
 import { isHtmlUiFolderSuitable, isInstrumentsFolderSuitable, isProjectFolderSuitable } from '../../utils/project';
 import { useProjects } from '../../main';
-import { open } from '@tauri-apps/api/dialog';
 
 export const CreateProject = () => {
     const [name, setName] = useState('');
@@ -125,6 +125,6 @@ export const CreateProject = () => {
                 </button>
                 <button type="button" onClick={() => history.push('/')}>Cancel</button>
             </div>
-        </div >
+        </div>
     );
 };

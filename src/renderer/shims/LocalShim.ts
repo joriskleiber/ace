@@ -60,9 +60,9 @@ export class LocalShim implements SimulatorInterface {
 
             return state[key] ?? 0;
         },
-    }
+    };
 
-    public GetStoredData = (key: string): any => projectStore.getState().persistentStorage[key] ?? ''
+    public GetStoredData = (key: string): any => projectStore.getState().persistentStorage[key] ?? '';
 
     public SetStoredData = (key: string, value: string): any => {
         if (typeof value !== 'string') {
@@ -74,7 +74,7 @@ export class LocalShim implements SimulatorInterface {
             console.log(error);
         }
         return null;
-    }
+    };
 
     public RegisterViewListener(name: string): ViewListener {
         return new ViewListener(name, this.Coherent);

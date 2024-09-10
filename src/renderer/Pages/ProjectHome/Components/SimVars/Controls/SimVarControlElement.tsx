@@ -96,12 +96,12 @@ export const SimVarControlElement: React.FC<SimVarEditorProps> = ({ simVarContro
                         || simVarControl.style.type === SimVarControlStyleTypes.Range
                         || simVarControl.style.type === SimVarControlStyleTypes.Button
                     ) && (
-                            <EditableSimVarControlValue
-                                value={simVarValue}
-                                unit={simVarControl.varUnit}
-                                onInput={handleSetValue}
-                            />
-                        )}
+                        <EditableSimVarControlValue
+                            value={simVarValue}
+                            unit={simVarControl.varUnit}
+                            onInput={handleSetValue}
+                        />
+                    )}
 
                     {simVarControl.style.type === SimVarControlStyleTypes.Range && (
                         <RangeSimVarControl

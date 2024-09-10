@@ -21,15 +21,16 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Path mapping */
-    // "baseUrl": ".",
-    // "paths": {
-    //   "@/*": ["src/*"],
-    //   "@components/*": ["src/components/*"],
-    //   "@context/*": ["src/context/*"],
-    //   "@hooks/*": ["src/hooks/*"],
-    //   "@interfaces/*": ["src/interfaces/*"],
-    //   "@provider/*": ["src/provider/*"]
-    // },
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@atoms/*": ["src/atoms/*"],
+      // "@components/*": ["src/components/*"],
+      // "@context/*": ["src/context/*"],
+      // "@hooks/*": ["src/hooks/*"],
+      // "@interfaces/*": ["src/interfaces/*"],
+      // "@provider/*": ["src/provider/*"]
+    },
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

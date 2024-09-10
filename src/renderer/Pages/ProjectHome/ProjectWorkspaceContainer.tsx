@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Provider } from 'react-redux';
-import { ProjectData } from '../../main';
+import { ProjectData } from '../../../main';
 import { ProjectStoreContext, projectStore } from './Store';
 import { ProjectWorkspace } from './ProjectWorkspace';
 

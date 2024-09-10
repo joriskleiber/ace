@@ -174,11 +174,11 @@ export const InstrumentFrameElement: FC<InstrumentFrameElementProps> = ({ instru
                 engine.loadBundledInstrument(
                     loadedInstrument,
                     iframeRef.current, {
-                    onInstrumentError: (error) => {
-                        setError(error);
-                        setErrorIsInInstrument(true);
+                        onInstrumentError: (error) => {
+                            setError(error);
+                            setErrorIsInInstrument(true);
+                        },
                     },
-                },
                 );
             } else if (instrumentFrame.dataKind === 'web' && loadedInstrument.__kind === 'web') {
                 engine.loadWebInstrument({ ...loadedInstrument, url: 'http://localhost:39511/' }, iframeRef.current, {

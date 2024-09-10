@@ -1,7 +1,6 @@
 import { IconArtboard, IconSettings, IconX } from '@tabler/icons-react';
 import React, { FC, useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { WindowsControl } from 'react-windows-controls';
 import { useProjects } from '../main';
 import { Notification, NotificationsContainer } from './Notifications';
 import { useAppDispatch, useAppSelector } from './Store';
