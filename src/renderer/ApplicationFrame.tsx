@@ -1,7 +1,7 @@
 import { IconArtboard, IconSettings, IconX } from '@tabler/icons-react';
 import React, { FC, useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useProjects } from '../main';
+import { useProjects } from '@components/App';
 import { Notification, NotificationsContainer } from './Notifications';
 import { useAppDispatch, useAppSelector } from './Store';
 import { popNotification } from './Store/actions/notifications.actions';

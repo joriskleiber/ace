@@ -23,9 +23,8 @@
     /* Path mapping */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
       "@atoms/*": ["src/atoms/*"],
-      // "@components/*": ["src/components/*"],
+      "@components/*": ["src/components/*"],
       // "@context/*": ["src/context/*"],
       // "@hooks/*": ["src/hooks/*"],
       // "@interfaces/*": ["src/interfaces/*"],

@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import path from 'path';
 import { open } from '@tauri-apps/api/dialog';
 import { isHtmlUiFolderSuitable, isInstrumentsFolderSuitable, isProjectFolderSuitable } from '../../utils/project';
-import { useProjects } from '../../main';
+import { useProjects } from '@components/App';
 
 export const CreateProject = () => {
     const [name, setName] = useState('');
