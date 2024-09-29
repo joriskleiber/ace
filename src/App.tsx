@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { commands } from "./bindings";
+import { commands } from "@/types/bindings";
+import CreateProject from "@/components/CreateProject";
+import { Link, Route, Switch, useLocation } from "wouter";
 
-function App() {
+const TestComponent: React.FC = () => {
   const [greetMsg, setGreetMsg] = useState("");
   const [name, setName] = useState("");
 
@@ -10,9 +12,8 @@ function App() {
   }
 
   return (
-    <div>
+    <>
       <h1 className="text-3xl font-bold underline">Welcome to Tauri!</h1>
-
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -28,7 +29,30 @@ function App() {
       </form>
 
       <p>{greetMsg}</p>
-    </div>
+    </>
+  )
+}
+
+const App: React.FC = () => {
+  const [location, setLocation] = useLocation();
+
+  return (
+    <>
+      <div className="absolute text-white right-0 bg-red-700 p-1">
+        <button onClick={() => setLocation("/")}>
+          {location}
+        </button>
+      </div>
+
+      <Link href="/create-project">Create Project</Link >
+
+      <Switch>
+        <Route path="/" component={() => "Home"} />
+        <Route path="/create-project" component={CreateProject} />
+
+        <Route>??</Route>
+      </Switch>
+    </>
   );
 }
 

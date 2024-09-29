@@ -10,21 +10,24 @@
     "tauri": "tauri"
   },
   "dependencies": {
-    "@tauri-apps/api": "2.0.0-rc.4",
+    "@tauri-apps/api": "2.0.0-rc.6",
+    "@tauri-apps/plugin-dialog": "2.0.0-rc.1",
     "@tauri-apps/plugin-shell": "2.0.0-rc.1",
+    "jotai": "^2.10.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "wouter": "^3.3.5"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "2.0.0-rc.13",
-    "@types/react": "^18.3.5",
+    "@tauri-apps/cli": "2.0.0-rc.17",
+    "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.7.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.11",
+    "tailwindcss": "^3.4.13",
     "typescript": "^5.6.2",
-    "vite": "^5.4.5",
+    "vite": "^5.4.8",
     "vite-tsconfig-paths": "^5.0.1"
   }
 }

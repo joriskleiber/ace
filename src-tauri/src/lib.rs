@@ -15,11 +15,12 @@ pub fn run() {
     tauri_specta_builder
         .export(
             specta_typescript::Typescript::default(),
-            "../src/backend/bindings.ts",
+            "../src/types/bindings.ts",
         )
         .expect("Failed to export typescript bindings");
 
     tauri::Builder::default()
+        .plugin(tauri_plugin_dialog::init())
         .invoke_handler(tauri_specta_builder.invoke_handler())
         .setup(move |app| {
             tauri_specta_builder.mount_events(app);
